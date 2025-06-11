@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
-const ListadoProductos = lazy(() => import("./pages/ListadoProductos"));
+const ListadoProductos = lazy(() => import("@pages/ListadoProductos"));
 
 function App() {
   return (

@@ -8,7 +8,7 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
@@ -21,7 +21,14 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    /* Imports */
+    "baseUrl": "./src",
+    "paths": {
+      "@components": ["components/index.ts"],
+      "@pages/*": ["pages/*"]
+    }
   },
   "include": ["src"]
 }

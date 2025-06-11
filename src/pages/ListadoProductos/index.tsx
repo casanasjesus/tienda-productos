@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Filters } from "../../components";
+import { Filters } from "@components";
 import { type Producto } from "./models/Producto.model";
 import "./styles.css";
 
