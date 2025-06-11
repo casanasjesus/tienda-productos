@@ -6,7 +6,7 @@ import {
   useState,
   useEffect,
 } from "react";
-import type { Producto } from "../../pages/ListadoProductos/models/Producto.model";
+import { type Product } from "@models";
 import "./styles.css";
 import {
   FormControl,
@@ -17,38 +17,38 @@ import {
 } from "@mui/material";
 
 type FiltersProps = {
-  productos: Producto[];
-  setProductosFiltrados: Dispatch<SetStateAction<Producto[]>>;
+  products: Product[];
+  setFilteredProducts: Dispatch<SetStateAction<Product[]>>;
 };
 
-const Filters: FC<FiltersProps> = ({ productos, setProductosFiltrados }) => {
-  const [buscarProductos, setBuscarProductos] = useState<string>("");
-  const [ordenProducto, setOrdenProducto] = useState<string>("asc");
+const Filters: FC<FiltersProps> = ({ products, setFilteredProducts }) => {
+  const [searchProducts, setSearchProducts] = useState<string>("");
+  const [productsOrder, setProductsOrder] = useState<string>("asc");
 
   useEffect(() => {
-    let filtrados: Producto[] = [...productos];
+    let filtrados: Product[] = [...products];
 
-    if (buscarProductos.trim() !== "") {
+    if (searchProducts.trim() !== "") {
       filtrados = filtrados.filter((producto) =>
-        producto.title.toLowerCase().includes(buscarProductos.toLowerCase())
+        producto.title.toLowerCase().includes(searchProducts.toLowerCase())
       );
     }
 
     filtrados.sort((a, b) =>
-      ordenProducto === "asc" ? a.price - b.price : b.price - a.price
+      productsOrder === "asc" ? a.price - b.price : b.price - a.price
     );
 
-    setProductosFiltrados(filtrados);
-  }, [buscarProductos, ordenProducto, productos, setProductosFiltrados]);
+    setFilteredProducts(filtrados);
+  }, [searchProducts, productsOrder, products, setFilteredProducts]);
 
   const handleChangeInput = ({ target }: ChangeEvent<HTMLInputElement>) => {
     const { value } = target;
-    setBuscarProductos(value);
+    setSearchProducts(value);
   };
 
   const handleChangeSelect = ({ target }: SelectChangeEvent) => {
     const { value } = target;
-    setOrdenProducto(value);
+    setProductsOrder(value);
   };
 
   return (
@@ -58,10 +58,10 @@ const Filters: FC<FiltersProps> = ({ productos, setProductosFiltrados }) => {
         variant="outlined"
         type="text"
         label="Buscar producto por nombre"
-        value={buscarProductos}
+        value={searchProducts}
         onChange={handleChangeInput}
       />
-      <Select value={ordenProducto} onChange={handleChangeSelect}>
+      <Select value={productsOrder} onChange={handleChangeSelect}>
         <MenuItem value="asc">Menor a mayor precio</MenuItem>
         <MenuItem value="desc">Mayor a menor precio</MenuItem>
       </Select>

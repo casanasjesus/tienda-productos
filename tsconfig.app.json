@@ -27,6 +27,7 @@
     "baseUrl": "./src",
     "paths": {
       "@components": ["components/index.ts"],
+      "@models": ["models/index.ts"],
       "@pages/*": ["pages/*"]
     }
   },

@@ -3,7 +3,7 @@ type Rating = {
   rate: number;
 };
 
-export type Producto = {
+export type Product = {
   category: string;
   description: string;
   id: number;

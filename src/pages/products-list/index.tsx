@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
 import { Filters } from "@components";
-import { type Producto } from "./models/Producto.model";
+import { type Product } from "@models";
 import "./styles.css";
 
-const ListadoProductos = () => {
-  const [productos, setProductos] = useState<Producto[]>([]);
-  const [productosFiltrados, setProductosFiltrados] = useState<Producto[]>([]);
+const ProductsList = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const getProductos = async () => {
+  const getProducts = async () => {
     try {
       setLoading(true);
-      const apiUrl: string = "https://fakestoreapi.com/products";
+      const apiUrl: string = "https://fakestoreapi.com/ProductsList";
       const response = await fetch(apiUrl);
-      const productos = await response.json();
-      setProductos(productos);
+      const products = await response.json();
+      setProducts(products);
     } catch (error) {
       console.warn(`Ocurrió un error al obtener los productos: ${error}`);
     } finally {
@@ -23,22 +23,19 @@ const ListadoProductos = () => {
   };
 
   useEffect(() => {
-    getProductos();
+    getProducts();
   }, []);
 
   return (
     <div className="container">
-      <Filters
-        productos={productos}
-        setProductosFiltrados={setProductosFiltrados}
-      />
+      <Filters products={products} setFilteredProducts={setFilteredProducts} />
 
       {loading && <p className="message">Cargando productos...</p>}
 
       <div className="card-container">
         {!loading &&
-          productosFiltrados.length > 0 &&
-          productosFiltrados.map((producto: Producto) => {
+          filteredProducts.length > 0 &&
+          filteredProducts.map((producto: Product) => {
             return (
               <div key={producto?.id} className="card">
                 <img
@@ -54,11 +51,11 @@ const ListadoProductos = () => {
           })}
       </div>
 
-      {!loading && productosFiltrados.length === 0 && (
+      {!loading && filteredProducts.length === 0 && (
         <p className="message">No hay productos para mostrar</p>
       )}
     </div>
   );
 };
 
-export default ListadoProductos;
+export default ProductsList;
