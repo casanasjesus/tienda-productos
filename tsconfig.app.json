@@ -27,6 +27,9 @@
     "baseUrl": "./src",
     "paths": {
       "@components": ["components/index.ts"],
+      "@components/*": ["components/*"],
+      "@context": ["context/index.ts"],
+      "@hooks": ["hooks/index.ts"],
       "@models": ["models/index.ts"],
       "@pages/*": ["pages/*"]
     }

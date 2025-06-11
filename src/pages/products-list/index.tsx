@@ -1,35 +1,12 @@
-import { useState, useEffect } from "react";
-import { Filters } from "@components";
 import { type Product } from "@models";
+import { useProducts } from "@hooks";
 import "./styles.css";
 
 const ProductsList = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-
-  const getProducts = async () => {
-    try {
-      setLoading(true);
-      const apiUrl: string = "https://fakestoreapi.com/ProductsList";
-      const response = await fetch(apiUrl);
-      const products = await response.json();
-      setProducts(products);
-    } catch (error) {
-      console.warn(`Ocurrió un error al obtener los productos: ${error}`);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
+  const { filteredProducts, loading } = useProducts();
 
   return (
     <div className="container">
-      <Filters products={products} setFilteredProducts={setFilteredProducts} />
-
       {loading && <p className="message">Cargando productos...</p>}
 
       <div className="card-container">
