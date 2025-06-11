@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import type { ChildrenProps, Product, ProductsContextType } from "models";
+import type { ChildrenProps, Product, ProductsContextType } from "@models";
 import { createContext, useState, useEffect, useMemo } from "react";
 
 export const ProductsContext = createContext<ProductsContextType | undefined>(

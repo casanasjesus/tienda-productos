@@ -1,14 +1,17 @@
-import { Filters } from "@components";
-import { useProducts } from "@hooks";
+import { TopBar, Header } from "@components";
 import { Box } from "@mui/material";
-import type { ChildrenProps } from "models";
+import type { ChildrenProps } from "@models";
 
 const Layout = ({ children }: ChildrenProps) => {
-  const { products, setFilteredProducts } = useProducts();
-
   return (
-    <Box>
-      <Filters products={products} setFilteredProducts={setFilteredProducts} />
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <TopBar />
+      <Header />
       {children}
     </Box>
   );
