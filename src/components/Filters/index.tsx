@@ -1,12 +1,6 @@
-import {
-  type FC,
-  type Dispatch,
-  type SetStateAction,
-  type ChangeEvent,
-  useState,
-  useEffect,
-} from "react";
+import { type ChangeEvent, useState, useEffect } from "react";
 import { type Product } from "@models";
+import type { FiltersProps } from "./models/FiltersProps.model";
 import "./styles.css";
 import {
   FormControl,
@@ -16,12 +10,7 @@ import {
   type SelectChangeEvent,
 } from "@mui/material";
 
-type FiltersProps = {
-  products: Product[];
-  setFilteredProducts: Dispatch<SetStateAction<Product[]>>;
-};
-
-const Filters: FC<FiltersProps> = ({ products, setFilteredProducts }) => {
+const Filters = ({ products, setFilteredProducts }: FiltersProps) => {
   const [searchProducts, setSearchProducts] = useState<string>("");
   const [productsOrder, setProductsOrder] = useState<string>("asc");
 
