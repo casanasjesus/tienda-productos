@@ -1,0 +1,32 @@
+.section-container {
+  width: 100%;
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  color: black;
+}
+
+.card-container {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.card {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: white;
+  height: 20rem;
+  align-items: center;
+}
+
+.product-image {
+  width: 100px;
+  margin-bottom: 15px;
+}

@@ -46,7 +46,7 @@ const Filters = ({ products, setFilteredProducts }: FiltersProps) => {
         id="outlined-basic"
         variant="outlined"
         type="text"
-        label="Buscar producto por nombre"
+        label="¿Qué es lo que buscas?"
         value={searchProducts}
         onChange={handleChangeInput}
       />

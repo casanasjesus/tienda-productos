@@ -3,34 +3,6 @@
   flex-direction: column;
 }
 
-.card-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 100%;
-  gap: 16px;
-  padding: 10px;
-  box-sizing: border-box;
-  margin-top: 20px;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 10px;
-  border-radius: 10px;
-  box-sizing: border-box;
-  width: 350px;
-  background-color: white;
-}
-
-.product-image {
-  width: 100px;
-  margin-bottom: 15px;
-}
-
 .message {
   color: white;
 }

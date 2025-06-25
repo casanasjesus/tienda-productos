@@ -6,7 +6,10 @@ const TopBar = () => {
       <AppBar position="fixed">
         <Toolbar>
           <Typography variant="h6" component="div">
-            Mi Aplicación
+            ES | Español
+          </Typography>
+          <Typography variant="h6" component="div">
+            Ahorra en el envío de tu pedido
           </Typography>
         </Toolbar>
       </AppBar>
